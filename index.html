@@ -1,32 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My First Website</title>
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Hello, world!</h1>
-    <p>This site is built with HTML and CSS.</p>
+  <div class="animated-bg"></div>
+
+  <header class="topbar">
+    <div>
+      <p class="small-text">Portfolio Website</p>
+      <h1>My Portfolio</h1>
+    </div>
+    <button id="themeBtn" class="btn dark-btn">Dark Mode</button>
   </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I am learning how to code websites from scratch.</p>
+
+  <main class="wrapper">
+    <section class="hero glass">
+      <div class="hero-content">
+        <p class="tag">Student | Web Developer | Learner</p>
+        <h2 id="greeting">Hi, I’m DAYANAND,</h2>
+        <p class="subtitle">
+          I am an Information Science and Engineering student passionate about coding,
+          web development, and creating clean modern websites.
+        </p>
+
+        <div class="hero-actions">
+          <button id="changeTextBtn" class="btn primary-btn">Change Message</button>
+          <button id="scrollBtn" class="btn secondary-btn">Explore More</button>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.P0rt2Hper57xn9MdXZ2j2QHaEK?r=0&pid=Api&P=0&h=180" alt="My Profile Photo" />
+      </div>
     </section>
-    <section>
+
+    <section id="about" class="glass section-card">
+      <h2>About Me</h2>
+      <p>
+        I am a second-semester ISE student at Sahyadri College of Engineering.
+        I enjoy learning HTML, CSS, JavaScript, and building small projects that improve my skills.
+      </p>
+    </section>
+
+    <section id="education" class="glass section-card">
+      <h2>Education</h2>
+      <div class="info-box">
+        <p><strong>College:</strong> Sahyadri College of Engineering</p>
+        <p><strong>Branch:</strong> Information Science and Engineering</p>
+        <p><strong>Semester:</strong> 3rd Semester</p>
+      </div>
+    </section>
+
+    <section id="skills" class="glass section-card">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>C</span>
+        <span>GitHub</span>
+      </div>
+    </section>
+
+    <section id="projects" class="glass section-card">
       <h2>Projects</h2>
-      <ul>
-        <li>Portfolio landing page</li>
-        <li>Product showcase</li>
-        <li>Responsive blog layout</li>
-      </ul>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive personal website built using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project-card">
+          <h3>Web Practice Pages</h3>
+          <p>Small practice projects to improve layout, styling, and interactivity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="glass section-card">
+      <h2>Contact</h2>
+      <p>Email: dayanandmane07@gmail.com</p>
+      <p>GitHub: <a href="https://github.com/tech1DK" target="_blank">dayanand</a></p>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+        <button type="submit" class="btn primary-btn">Say Hello</button>
+      </form>
+
+      <p id="message"></p>
     </section>
   </main>
-  <footer>
-    <p>Built with ❤️ using HTML & CSS.</p>
-  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

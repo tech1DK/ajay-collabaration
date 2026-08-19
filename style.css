@@ -1,99 +1,289 @@
 * {
   box-sizing: border-box;
-}
-body {
-  font-family: "Segoe UI", Roboto, sans-serif;
   margin: 0;
-  background: #f4f7fb;
-  color: #253238;
+  padding: 0;
 }
-header {
-  background: linear-gradient(120deg, #04AA6D, #058457);
-  color: #fff;
-  padding: 60px 20px;
-  text-align: center;
+
+:root {
+  --bg1: #ffecd2;
+  --bg2: #fcb69f;
+  --bg3: #a1c4fd;
+  --text: #1e1e2f;
+  --glass: rgba(255, 255, 255, 0.35);
+  --border: rgba(255, 255, 255, 0.5);
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  --primary: #ff4d8d;
+  --secondary: #6c63ff;
+  --accent: #00c2a8;
 }
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 40px 20px;
+
+body.dark {
+  --bg1: #0f172a;
+  --bg2: #1e293b;
+  --bg3: #312e81;
+  --text: #f8fafc;
+  --glass: rgba(15, 23, 42, 0.55);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --primary: #fb7185;
+  --secondary: #38bdf8;
+  --accent: #34d399;
 }
-section {
-  background: #fff;
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+  overflow-x: hidden;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.22), transparent 22%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.18), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.16), transparent 20%);
+  z-index: -1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+body.dark .topbar {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.small-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+.wrapper {
+  width: min(1100px, 92%);
+  margin: 28px auto;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero,
+.section-card {
+  border-radius: 24px;
+  margin-bottom: 22px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 30px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  padding: 13px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, var(--primary), #ff7eb3);
+  color: white;
+}
+
+.secondary-btn {
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  color: white;
+}
+
+.dark-btn {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.hero-photo img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease;
+}
+
+.hero-photo img:hover {
+  transform: rotate(4deg) scale(1.06);
+}
+
+.section-card {
+  padding: 26px;
+}
+
+.section-card h2 {
+  margin-bottom: 16px;
+  font-size: 1.7rem;
+}
+
+.info-box {
+  display: grid;
+  gap: 10px;
+  font-size: 1.03rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills span {
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff4d8d, #ffb703, #6c63ff);
+  background-size: 200% 200%;
+  animation: skillGlow 6s ease infinite;
+}
+
+@keyframes skillGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.project-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.25);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+#nameInput {
+  padding: 12px 14px;
+  min-width: 240px;
   border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  border: 1px solid #ddd;
+  outline: none;
 }
-section h2 {
-  margin-top: 0;
-  color: #04AA6D;
+
+#message {
+  margin-top: 14px;
+  font-weight: 700;
 }
-footer {
-  padding: 24px;
-  text-align: center;
-  background: #e8edf4;
-  font-size: 0.9rem;
+
+a {
+  color: #004cff;
+  font-weight: 700;
+  text-decoration: none;
 }
-These rules set base typography and colors, style the header with a gradient, and give sections padding, rounded corners, and a soft shadow.
 
-Note: The rule linear-gradient creates a smooth color blend, and box-shadow adds a soft shadow under each section.
+a:hover {
+  text-decoration: underline;
+}
 
-Save the CSS file.
+@media (max-width: 768px) {
+  .topbar,
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 
-Your directory now looks like:
+  .hero h2 {
+    font-size: 2.2rem;
+  }
 
-htmlcss-course/
-  index.html
-  css/
-    styles.css
-
-REMOVE ADS
-
-Step 3: Open in a browser
-Double-click index.html to open it in your default browser.
-If the layout looks plain, confirm the link tag points to css/styles.css and that the file path exists.
-Use Reload after every change; keep DevTools open to inspect styles.
-Experiment
-Change the gradient colors in header and refresh.
-Add another section to practice working with HTML structure.
-Swap fonts by using a Google Fonts embed in the <head>.
-Mini homepage demo
-This demo combines the HTML skeleton with basic CSS to render a small one-section homepage.
-
-Syntax highlights: an external stylesheet via <link>, semantic tags (<header>, <main>, <section>), and simple spacing utilities.
-
-Example
-index.htmlstyles.css
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My First Website</title>
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
-</head>
-<body>
-  <header>
-    <h1>Hello, world!</h1>
-    <p>This site is built with HTML and CSS.</p>
-  </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I am learning how to code websites from scratch.</p>
-    </section>
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>Portfolio landing page</li>
-        <li>Product showcase</li>
-        <li>Responsive blog layout</li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>Built with ❤️ using HTML & CSS.</p>
-  </footer>
-</body>
-</html>
+  .hero-photo img {
+    width: 190px;
+    height: 190px;
+  }
+}
